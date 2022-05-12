@@ -3,10 +3,10 @@
 
 int main()
 {
-    int liminf, limsup, n, i, x, primo = 0;
+    int liminf, limsup, n, i, x, pri = 0, cp = 1;
     char c = 'S';
 
-    while (c == 'S')
+    while (c == 'S' || c == 's')
     {
         printf("Informe o valor do limite inferior do intervalo: ");
         scanf("%d", &liminf);
@@ -17,32 +17,35 @@ int main()
 
         if (n > 0 && liminf > 1 && limsup >= liminf)
         {
-            for (i = liminf - 2; i <= limsup; i++)
+            for (i = liminf; i <= limsup; i++)
             {
-                if (i = n || i % n ==0)
-                {
-                    printf("\n");
-                }
                 for (x = 1; x < i; x++)
                 {
                     if (i == 0 || i == 1)
                     {
-                        primo = 0;
+                        pri = 0;
                     }
                     else
                     {
-                        primo = 1;
+                        pri = 1;
                         for (x = 2; x < i; x++)
                         {
                             if (i % x == 0)
                             {
-                                primo = 0;
+                                pri = 0;
                             }
                         }
                     }
-                    if (primo == 1)
+                    if (pri == 1)
                     {
                         printf("%d ", i);
+                        cp++;
+
+                        if (cp = n)
+                        {
+                            printf("\n");
+                            cp = 1;
+                        }
                     }
                 }
             }
@@ -56,4 +59,6 @@ int main()
         printf("\nDeseja repetir o programa (S ou N)? ");
         scanf(" %c", &c);
     }
+
+    return 0;
 }
